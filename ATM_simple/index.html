@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>ATM | JS</title>
+</head>
+<body>
+  <h1>JS ATM & Co.</h1>
+  <h2>Welcome</h2>
+  <p>Choose action</p>
+  <button onclick="
+      //
+      let input_id  = +prompt('Enter ID')
+      if ( input_id === client_id ) {
+        let input_pin = +prompt('Enter PIN')
+
+        if ( input_pin === client_pin_code ) {
+          alert(`balance: ${client_money_amount} ${client_money_currency}`)
+        } else {
+          alert('Wrong Pin Code')
+        }
+
+
+      } else { 
+        alert('Wrong client ID')
+      }
+      
+  
+  ">CHECK FOUNDS</button>
+<br>
+<button onclick="
+   // HW1: add id and pin verification
+  //HW2: make all the butons of the same size
+  let input_id  = +prompt('Enter ID')
+  if( input_id === client_id ) {
+      let input_pin = +prompt('Enter PIN') 
+      if ( input_pin === client_pin_code ) {
+        let input_amount = +prompt('Enter AMOUNT')
+        let input_currency = prompt('Enter Currency')
+          if(input_currency === client_money_currency ){
+            client_money_amount += input_amount
+            alert('Money sent with succes!')
+            } else {
+            alert(`Cannot process ${input_currency}`)
+            }
+      }
+  }
+">
+  TRANSFER FUNDS
+</button>
+
+<br>
+
+<button
+onclick="
+let input_id  = +prompt('Enter ID')
+  if( input_id === client_id ) {
+      let input_pin = +prompt('Enter PIN') 
+
+      if ( input_pin === client_pin_code ) {
+        let withdraw_amount = +prompt('Enter AMOUNT')
+
+      if (withdraw_amount <= client_money_amount && withdraw_amount <= 5000){
+        let withdraw_currency = prompt('Enter Currency')
+
+          if ( withdraw_currency == client_money_currency) {   
+            client_money_amount -= withdraw_amount
+            alert('The money was successfully withdrawn')
+        } else {
+          alert(`Cannot proceed operation`)
+        }
+      } else{
+        alert('Withdraw limit 5000 has been exceeded')
+      }
+    
+      } else{
+        alert('Wrong Pin Code')
+      }
+    } else {
+      alert('Wrong ID')
+    }
+">WITHDRAW FUNDS</button>
+
+  <script>
+    // CLIENT ACCOUNT DATA
+    let client_money_amount  = 10000
+    let client_money_currency = "EUR"
+    let client_id            = 12345678
+    let client_pin_code      = 1234
+  </script>
+</body>
+</html>
+
+<!-- 
+  HW1: add id  & pin verification on founds transfer
+  HW4: write the withdrawal logic
+          chech id & pin 
+          check  if sufficient founds 
+          chech currency
+          check limit 5000
+          update the founds
+          display succes message
+-->
